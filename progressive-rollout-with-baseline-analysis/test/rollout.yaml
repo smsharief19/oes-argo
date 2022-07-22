@@ -1,14 +1,22 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: oes-argo-rollout
+  labels:
+    app: oes-argo-rollout
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      app: oes-argo-rollout
   template:
+    metadata:
+      labels:
+        app: oes-argo-rollout
     spec:
       containers:
       - name: issuegen
         image: docker.io/opsmxdev/issuegen:v3.0.4
         imagePullPolicy: Always
-        ports:
-        - containerPort: 8088
+          ports:
+          - containerPort: 8088
