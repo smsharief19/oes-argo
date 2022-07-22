@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: oes-argo-rollout
-        image: docker.io/opsmxdev/issuegen:v3.0.4
+        image: docker.io/opsmxdev/issuegen:v3.0.5
         ports:
         - containerPort: 8088
         livenessProbe:
