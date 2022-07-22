@@ -9,12 +9,9 @@ spec:
     matchLabels:
       app: oes-argo-rollout
   template:
-    metadata:    
-      labels:
-        app: oes-argo-rollout
     spec:
       containers:
-        - name: rollouts-baseline
+        - name: issuegen
           image: docker.io/opsmxdev/issuegen:v3.0.6
           imagePullPolicy: Always
           ports:
