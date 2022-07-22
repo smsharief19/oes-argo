@@ -14,8 +14,22 @@ spec:
         app: oes-argo-rollout
     spec:
       containers:
-      - name: issuegen
-        image: docker.io/opsmxdev/issuegen:v3.0.5
-        imagePullPolicy: Always
-          ports:
-          - containerPort: 8088
+      - name: oes-argo-rollout
+        image: docker.io/opsmxdev/issuegen:v3.0.4
+        ports:
+        - containerPort: 8088
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+        resources:
+          limits:
+            cpu: 100m
+            memory: 256Mi
+          requests:
+            cpu: 80m
+            memory: 128Mi
