@@ -3,17 +3,13 @@ kind: Rollout
 metadata:
   name: oes-argo-rollout
 spec:
-  replicas: 5
+  replicas: 1
   revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: oes-argo-rollout
   template:
-    metadata:
-      annotations:
-        prometheus.io/scrape: 'true'
-        prometheus_io_path: '/mgmt/prometheus'
-        prometheus_io_port: '8088'    
+    metadata:    
       labels:
         app: oes-argo-rollout
     spec:
