@@ -1,18 +1,14 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: oes-argo-rollout
 spec:
   replicas: 1
-  revisionHistoryLimit: 2
-  selector:
-    matchLabels:
-      app: oes-argo-rollout
   template:
     spec:
       containers:
-        - name: issuegen
-          image: docker.io/opsmxdev/issuegen:v3.0.5
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8088
+      - name: issuegen
+        image: docker.io/opsmxdev/issuegen:v3.0.4
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8088
